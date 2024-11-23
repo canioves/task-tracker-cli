@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskTrackerCLI", "TaskTrackerCLI\TaskTrackerCLI.csproj", "{00E2770A-6ADF-402E-864D-87CEE8ACA482}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskTrackerCLI.Tests", "TaskTrackerCLI.Tests\TaskTrackerCLI.Tests.csproj", "{D1CFF2DB-BC0C-41D8-B1CB-45DBF2EA8901}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{999C1446-4583-4C51-9B17-835B093C672D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{999C1446-4583-4C51-9B17-835B093C672D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{999C1446-4583-4C51-9B17-835B093C672D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{999C1446-4583-4C51-9B17-835B093C672D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00E2770A-6ADF-402E-864D-87CEE8ACA482}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00E2770A-6ADF-402E-864D-87CEE8ACA482}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00E2770A-6ADF-402E-864D-87CEE8ACA482}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00E2770A-6ADF-402E-864D-87CEE8ACA482}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1CFF2DB-BC0C-41D8-B1CB-45DBF2EA8901}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1CFF2DB-BC0C-41D8-B1CB-45DBF2EA8901}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1CFF2DB-BC0C-41D8-B1CB-45DBF2EA8901}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1CFF2DB-BC0C-41D8-B1CB-45DBF2EA8901}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
