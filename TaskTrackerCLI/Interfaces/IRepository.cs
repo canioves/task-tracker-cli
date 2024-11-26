@@ -5,6 +5,9 @@ namespace TaskTrackerCLI.Interfaces
     public interface IRepository
     {
         public AppTask GetTaskFromRepository(int taskId);
-        public void SaveTaskToRepository(AppTask task);        
+        public List<AppTask> GetAllTasksFromRepository();
+        public void AddTaskToRepository(AppTask task);
+        public void UpdateExistingTaskInReposiroty(int taskId, string newDescription);
+        public void DeleteExistingTaskFromRepository(int taskId);
     }
 }
