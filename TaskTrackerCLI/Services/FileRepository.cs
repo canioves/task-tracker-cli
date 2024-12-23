@@ -10,8 +10,7 @@ namespace TaskTrackerCLI.Services
 
         public FileRepository(string repositoryPath)
         {
-            string dbFileName = "taskDB.json";
-            string combinePath = Path.Combine(@"..\..\..\..", repositoryPath, dbFileName);
+            string combinePath = Path.Combine(@"..\..\..", repositoryPath);
             actualPath = Path.GetFullPath(combinePath);
             CreateFileIfNotExist();
         }
@@ -20,7 +19,8 @@ namespace TaskTrackerCLI.Services
         {
             if (!File.Exists(actualPath))
             {
-                File.Create(actualPath);
+                FileStream f = File.Create(actualPath);
+                f.Close();
             }
         }
 
@@ -35,7 +35,9 @@ namespace TaskTrackerCLI.Services
         public List<AppTask> GetAllTasksFromRepository()
         {
             string json = ReadFromRepository();
-            return JsonMapper.JsonToAllTasks(json);
+            return string.IsNullOrEmpty(json)
+                ? new List<AppTask>()
+                : JsonMapper.JsonToAllTasks(json);
         }
 
         public AppTask GetTaskFromRepository(int taskId)
@@ -44,14 +46,17 @@ namespace TaskTrackerCLI.Services
             return tasks.Find(x => x.Id == taskId);
         }
 
-        public void AddTaskToRepository(AppTask task)
+        public void AddTaskToRepository(string description)
         {
             List<AppTask> tasks = GetAllTasksFromRepository();
-            if (tasks.Exists(x => x.Equals(task)))
+            int newID = 1;
+            if (tasks.Count > 0)
             {
-                throw new ArgumentException("This task already exists!");
+                AppTask lastTask = tasks.Last();
+                newID = lastTask.Id + 1;
             }
-            tasks.Add(task);
+            AppTask newTask = new AppTask(newID, description);
+            tasks.Add(newTask);
             WriteToRepository(tasks);
         }
 
@@ -60,6 +65,7 @@ namespace TaskTrackerCLI.Services
             List<AppTask> tasks = GetAllTasksFromRepository();
             AppTask task = tasks.Find(x => x.Id == taskId);
             task.Description = newDescription;
+            task.UpdatedAt = DateTime.UtcNow;
             WriteToRepository(tasks);
         }
 

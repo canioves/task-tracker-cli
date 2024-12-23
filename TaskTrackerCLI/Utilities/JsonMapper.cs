@@ -1,12 +1,14 @@
-using TaskTrackerCLI.Models;
+using System.ComponentModel;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using TaskTrackerCLI.Models;
 
 namespace TaskTrackerCLI.Utilities
 {
     public class JsonMapper
     {
         private static JsonSerializerOptions _serializerOptions;
+
         static JsonMapper()
         {
             _serializerOptions = new JsonSerializerOptions();
@@ -14,7 +16,11 @@ namespace TaskTrackerCLI.Utilities
             _serializerOptions.Converters.Add(new JsonStringEnumConverter());
             _serializerOptions.WriteIndented = true;
         }
-        public static string AllTasksToJson(List<AppTask> taskList) => JsonSerializer.Serialize(taskList, _serializerOptions);
-        public static List<AppTask> JsonToAllTasks(string json) => JsonSerializer.Deserialize<List<AppTask>>(json, _serializerOptions);
+
+        public static string AllTasksToJson(List<AppTask> taskList) =>
+            JsonSerializer.Serialize(taskList, _serializerOptions);
+
+        public static List<AppTask> JsonToAllTasks(string json) =>
+            JsonSerializer.Deserialize<List<AppTask>>(json, _serializerOptions);
     }
 }

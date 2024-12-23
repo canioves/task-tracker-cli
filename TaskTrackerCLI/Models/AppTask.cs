@@ -13,7 +13,7 @@ namespace TaskTrackerCLI.Models
         public int Id { get; set; }
         public string Description { get; set; }
         public Status Status { get; set; } = Status.TODO;
-        public DateTime? CreatedAt { get; set; } = null;
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public DateTime? UpdatedAt { get; set; } = null;
 
         public override bool Equals(object obj)
@@ -24,8 +24,9 @@ namespace TaskTrackerCLI.Models
             }
 
             AppTask other = (AppTask)obj;
-            return Id == other.Id && Description == other.Description; 
+            return Id == other.Id && Description == other.Description;
         }
+
         public override int GetHashCode() => Id.GetHashCode() ^ Description.GetHashCode();
     }
 }
